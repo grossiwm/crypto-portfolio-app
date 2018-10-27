@@ -1,2 +1,10 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<p></p>
+
+<% for table in @coins %>
+    <% for coin in @mycoins %>
+        <% if coin == table['symbol'] %>
+            <%= table['name'] %> : $<%= table["price_usd"] %> </br>
+        <% end %>
+    <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Coin look up</h1>
+
+<%= form_tag home_lookup_path, :method => 'POST' do %>
+    <%= text_field_tag 'sym', nil, placeholder: 'Coin symbol here', size: 50%>
+    <%= submit_tag 'Lookup'%>
+<%end%>
+
+<%= @symbol %>
