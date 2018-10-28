@@ -6,3 +6,15 @@
 <%end%>
 
 <%= @symbol %>
+
+<% if @symbol %>
+    <% for table in @coins %>
+        <% if table['symbol'] == @symbol %>
+            <%= table['name'] %>: $<%= table["price_usd"] %><br>
+            Rank: <%= table['rank'] %>
+            
+        <% end %>
+    <% end %>
+<% else %>
+    <p>You forgot to type the currency symbol!</p>
+<%end%>

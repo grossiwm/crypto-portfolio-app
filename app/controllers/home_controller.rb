@@ -16,5 +16,18 @@ class HomeController < ApplicationController
 
   def lookup
     @symbol = params[:sym]
+
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @coins = JSON.parse(@response)
+    
+    if @symbol
+      @symbol = @symbol.upcase
+    end
+    
   end
 end
