@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @response = Net::HTTP.get(@uri)
     @coins = JSON.parse(@response)
 
-    @mycoins = ['BTC', 'BCH', 'XRP', 'ETH']
+    @mycoins = ['BTC', 'BCH', 'XRP', 'ETH','EOS']
     
   end
 
@@ -29,5 +29,17 @@ class HomeController < ApplicationController
       @symbol = @symbol.upcase
     end
     
+  end
+
+  def quotes
+    #getting Coinmarketcap info
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @coins = JSON.parse(@response)
+
   end
 end

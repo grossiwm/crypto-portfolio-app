@@ -4,7 +4,8 @@
 <% for table in @coins %>
     <% for coin in @mycoins %>
         <% if coin == table['symbol'] %>
-            <%= table['name'] %> : $<%= table["price_usd"] %> </br>
+            <%= table['name'] %> : $<%= table["price_usd"] %> Market Cap: $<%= table["market_cap_usd"] %></br>
+            
         <% end %>
     <% end %>
 <% end %>
