@@ -1,5 +1,27 @@
 
-<% for table in @coins %>
-    <%=table['name']%>  price: $<%= table['price_usd'] %><br><br>
 
-<%end%>
+<table class ="table">
+<thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Symbol</th>
+
+      <th scope="col">Coin name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Market cap</th>
+    </tr>
+</thead>
+<tbody>
+    <% for table in @coins %>
+    <tr>
+      <th scope="row"> <%=table['rank']%> </th>
+      <th scope="row"> <%=table['symbol']%> </th>
+      <td> <%=table['name']%></td>
+      <td><%= table['price_usd'] %></td>
+      <td><%= table['market_cap_usd'] %></td>
+    </tr>
+    <%end%>
+</tbody>
+   
+<table>    
+

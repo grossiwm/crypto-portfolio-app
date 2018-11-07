@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  #before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+
   def index
 
     #getting Coinmarketcap info

@@ -1,0 +1,33 @@
+
+
+<h1>Cryptos</h1>
+
+<table class="table">
+  <thead>
+    <tr class="table">
+      <th scope="col">Symbol</th>
+      <th scope="col">Cost per</th>
+      <th scope="col">Amount owned</th>
+      <th colspan="3" scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cryptos.each do |crypto| %>
+      <% if crypto.user.id == @user.id%>
+        <tr scope="row">
+          <td><%= crypto.symbol %></td>
+          <td><%= crypto.cost_per %></td>
+          <td><%= crypto.amount_owned %></td>
+          <td><%= link_to 'Show', crypto %></td>
+          <td><%= link_to 'Edit', edit_crypto_path(crypto) %></td>
+          <td><%= link_to 'Destroy', crypto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crypto', new_crypto_path, class:"fas fa-plus" %>
