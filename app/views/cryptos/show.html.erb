@@ -1,24 +1,56 @@
+
+<% @show_coins.each do |table| %>
+      <%if (table['symbol'] == @crypto.symbol)%>
+        <% @crypto_price = table['price_usd'] %>
+        <% @crypto_rank = table['rank'] %>
+        <% @crypto_name = table['name'] %>
+      <%end%>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
+<br><br>
+    <div class="card text-center">
+      <div class="card-header">
+        <%=@crypto_name%>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @crypto.symbol%></h5>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Symbol:</strong>
-  <%= @crypto.symbol %>
-</p>
+    <p>
 
-<p>
-  
-  <% @crypto.user %>
-</p>
+    <p>
+      <strong>Rank:</strong>
+      <%= @crypto_rank %>
+    </p>
 
-<p>
-  <strong>Cost per:</strong>
-  <%= @crypto.cost_per %>
-</p>
+    <p>
+      <strong>Current price:</strong>
+      <%= number_to_currency(@crypto_price) %>
+    </p>
 
-<p>
-  <strong>Amount owned:</strong>
-  <%= @crypto.amount_owned %>
-</p>
+    <p>
+      
+      <% @crypto.user %>
+    </p>
 
-<%= link_to 'Edit', edit_crypto_path(@crypto) %> |
-<%= link_to 'Back', cryptos_path %>
+    <p>
+      <strong>Price paid per unit:</strong>
+      <%= number_to_currency(@crypto.cost_per) %>
+    </p>
+
+    <p>
+      <strong>Amount owned:</strong>
+      <%= @crypto.amount_owned %>
+    </p>
+    
+  </div>
+  <div class="card-footer text-muted">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to 'Update', edit_crypto_path(@crypto), class:"btn btn-primary" %>
+      <%= link_to 'Destroy', @crypto, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+      <%= link_to 'Back to portfolio', cryptos_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>

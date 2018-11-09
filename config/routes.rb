@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :cryptos
   devise_for :users
-  get 'home/index'
-  root 'home#index'
+#  get 'home/index'
+  root 'home#quotes'
   get 'home/about'
   get 'home/lookup'
   post 'home/lookup'

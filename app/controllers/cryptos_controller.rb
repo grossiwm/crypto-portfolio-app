@@ -9,11 +9,32 @@ class CryptosController < ApplicationController
   # GET /cryptos.json
   def index
     @cryptos = Crypto.all
+
+    #getting Coinmarketcap info
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @coins = JSON.parse(@response)
+    @profit_loss = 0
+
   end
 
   # GET /cryptos/1
   # GET /cryptos/1.json
   def show
+
+    #getting Coinmarketcap info
+    require 'net/http'
+    require 'json'
+
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @show_coins = JSON.parse(@response)
+
   end
 
   # GET /cryptos/new

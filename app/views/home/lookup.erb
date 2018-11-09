@@ -1,3 +1,4 @@
+<br><br>
 <h1>Coin look up</h1>
 
 <%= form_tag home_lookup_path, :method => 'POST' do %>
@@ -5,16 +6,22 @@
     <%= submit_tag 'Lookup'%>
 <%end%>
 
-<%= @symbol %>
+<br><br>
 
 <% if @symbol %>
     <% for table in @coins %>
         <% if table['symbol'] == @symbol %>
-            <%= table['name'] %>: $<%= table["price_usd"] %><br>
-            Rank: <%= table['rank'] %>
-            
-        <% end %>
+        <div class="card bg-light mb-3" style="width: 40rem;">
+            <ul class="list-group">
+                <% table.each do |key, arr| %>
+                <li class = "list-group-item"> <strong> <%= key %></strong> : <%= arr %> </li>
+                <%end%>
+            <% end %>
+            </ul>
+        </div>
     <% end %>
 <% else %>
-    <p>You forgot to type the currency symbol!</p>
+    <div class="alert alert-warning" role="alert">
+        <p>You forgot to type the currency symbol!</p>
+    </div>
 <%end%>

@@ -26,11 +26,17 @@
           </div>
         </li>
 
-        <li class="nav-item">
-          <%= link_to 'My cryptos', cryptos_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Add new crypto', new_crypto_path, class: "nav-link" %>
+
+        <li class="nav-item dropdown">
+          
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My portfolio
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'My cryptos', cryptos_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Add new crypto', new_crypto_path, class: "dropdown-item"%>
+          </div>
         </li>
 
       <% else %>
@@ -48,9 +54,12 @@
       </li>
 
       <li class="nav-item">
-        <%= link_to 'Look up', home_lookup_path, class: "nav-link" %>
+        <%= link_to 'Coin Search', home_lookup_path, class: "nav-link" %>
       </li>
 
+      <li class="nav-item">
+        <%= link_to 'All coins', root_path, class: "nav-link" %>
+      </li>
       
       
     </ul>
