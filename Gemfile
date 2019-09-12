@@ -75,4 +75,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.1.3'
 
 #login system
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
